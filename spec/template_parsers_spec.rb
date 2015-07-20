@@ -18,7 +18,7 @@ describe "template parsers" do
     before(:each) do
       Shortcode.setup do |config|
         config.template_parser = :haml
-        config.template_path = File.join File.dirname(__FILE__), "support/templates/haml"
+        config.template_paths = [File.join(File.dirname(__FILE__), "support/templates/haml")]
       end
     end
 
@@ -33,7 +33,7 @@ describe "template parsers" do
     before(:each) do
       Shortcode.setup do |config|
         config.template_parser = :slim
-        config.template_path = File.join File.dirname(__FILE__), "support/templates/slim"
+        config.template_paths = [File.join(File.dirname(__FILE__), "support/templates/slim")]
       end
     end
 

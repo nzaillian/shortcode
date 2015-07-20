@@ -1,5 +1,7 @@
 # Shortcode
 
+*Note: this branch extends the existing shortcode gem with support for multiple template paths. This is useful if you want to bundle the shortcode gem with a Rails Engine and still allow users to provide their own templates or overrides*
+
 Shortcode is a ruby gem for parsing Wordpress style shortcodes, I created it while building a CMS for a client through [my ruby consultancy, Kernow Soul](http://kernowsoul.com). The gem uses a [PEG](http://en.wikipedia.org/wiki/Parsing_expression_grammar) (Parsing Expression Grammar) parser rather than using regular expressions so its easier to understand, test and extend.
 
 [![Gem Version](https://badge.fury.io/rb/shortcode.svg)](http://badge.fury.io/rb/shortcode)
@@ -232,10 +234,10 @@ Shortcode.setup do |config|
   config.template_parser = :erb # :erb, :haml, :slim supported, :erb is default
 
   # location of the template files, default is "app/views/shortcode_templates"
-  config.template_path = "support/templates/erb"
+  config.template_paths = ["support/templates/erb"]
 
   # a hash of templates passed as strings, if this is set it overrides the
-  # above template_path option. The default is nil
+  # above template_paths option. The default is nil
   config.templates = { gallery: 'template code' }
 
   # an array of helper modules to make available within templates

@@ -3,7 +3,7 @@ class Shortcode::Configuration
   attr_accessor :template_parser
 
   # Sets the path to search for template files
-  attr_accessor :template_path
+  attr_accessor :template_paths
 
   # Allows templates to be set from strings rather than read from the filesystem
   attr_accessor :templates
@@ -25,7 +25,7 @@ class Shortcode::Configuration
 
   def initialize
     @template_parser      = :erb
-    @template_path        = "app/views/shortcode_templates"
+    @template_paths       = ["app/views/shortcode_templates"]
     @templates            = nil
     @helpers              = []
     @block_tags           = []

@@ -41,12 +41,14 @@ class Shortcode::Tag
     end
 
     def template_files
-      template_paths.map do |filename|
-        File.join Shortcode.configuration.template_path, filename
-      end
+      expanded_template_paths.map do |filename|
+        Shortcode.configuration.template_paths.reverse.map do |path|
+          File.join path, filename
+        end
+      end.flatten
     end
 
-    def template_paths
+    def expanded_template_paths
       [ "#{@name}.html.#{Shortcode.configuration.template_parser.to_s}", "#{@name}.#{Shortcode.configuration.template_parser.to_s}" ]
     end
 end

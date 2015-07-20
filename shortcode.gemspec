@@ -26,4 +26,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "coveralls", "~> 0"
   spec.add_development_dependency "slim", "~> 3.0"
   spec.add_development_dependency "haml", "~> 4.0"
+  spec.add_development_dependency "rails"
 end
